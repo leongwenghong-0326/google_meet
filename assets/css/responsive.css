@@ -1,0 +1,124 @@
+/**
+ * ConnectMeet - Responsive & Mobile Layout Styles
+ */
+
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .display-name-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lobby-card {
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .live-clock {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-features {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .side-drawer {
+        width: 100%;
+        right: -100%;
+    }
+
+    /* Video grid for mobile */
+    .video-grid[data-count="1"] {
+        grid-template-columns: 1fr;
+    }
+    .video-grid[data-count="2"] {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .video-grid[data-count="3"],
+    .video-grid[data-count="4"],
+    .video-grid[data-count="5"],
+    .video-grid[data-count="6"],
+    .video-grid[data-count="7"],
+    .video-grid[data-count="8"] {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .meeting-bottom-bar {
+        padding: 0 12px;
+        height: 70px;
+    }
+
+    .bottom-left-info {
+        display: none;
+    }
+
+    .bottom-right-actions {
+        min-width: auto;
+    }
+
+    .ctrl-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .ctrl-btn.btn-leave {
+        padding: 0 14px;
+        font-size: 0.85rem;
+    }
+
+    .controls-cluster {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .join-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .join-group input {
+        min-width: 120px;
+        width: 100%;
+    }
+
+    .lobby-card {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,36 @@
+# ConnectMeet Apache Configuration
+
+# Disable Directory Browsing
+Options -Indexes
+
+# Follow Symbolic Links
+Options +FollowSymLinks
+
+# Protect Sensitive Directories and Files
+<FilesMatch "^(config\.php|\.env|\.git|\.gitignore|composer\..*|package\..*)">
+    Require all denied
+</FilesMatch>
+
+# Block direct web access to sensitive backend directories
+RedirectMatch 403 ^/(config|database|scripts|tests)/
+
+# Force HTTPS (Crucial for WebRTC getUserMedia and microphone/camera online)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1$
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# UTF-8 Encoding
+AddDefaultCharset UTF-8

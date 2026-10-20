@@ -1,0 +1,49 @@
+# ConnectMeet - .gitignore
+# Protect sensitive user credentials, database passwords, and environment data
+
+# Database & Environment Secrets
+config/config.php
+config/config.local.php
+config/database.php
+.env
+.env.*
+!.env.example
+
+# Exception: keep template configs tracked
+!config/config.example.php
+
+# Database Dumps, Backups & Credentials
+*.sql.bak
+*dump*.sql
+backup*.sql
+private*.sql
+
+# Logs & Temporary Files
+*.log
+*.tmp
+tmp/
+temp/
+scratch/
+
+# User Recordings & Media Cache
+recordings/
+uploads/
+*.webm
+*.mp4
+*.wav
+*.mp3
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.user
+
+# Composer / NPM (if applicable)
+vendor/
+node_modules/
